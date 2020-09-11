@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Assessment.Steps
@@ -40,7 +38,6 @@ namespace Assessment.Steps
         [Given("I have clicked the register button")]
         public void IClickRegisterButton()
         {
-            // .header a[href="#/register"]
             var registerBut = _chromeDriver.FindElementByCssSelector(".header a[href='#/register']");
             Assert.IsTrue(registerBut.Displayed);
             registerBut.Click();
@@ -167,7 +164,6 @@ namespace Assessment.Steps
         [When("I fill in zipcode to (.*)")]
         public void FillInZipcode(string zipcode)
         {
-            _chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             var ZipcodeFld = _chromeDriver.FindElementByCssSelector("input#ZipCode");
             Assert.IsTrue(ZipcodeFld.Displayed);
             ZipcodeFld.SendKeys(zipcode);
